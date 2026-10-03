@@ -1,0 +1,23 @@
+{
+  "timestamp": "2026-10-03T23:35:46.389835",
+  "total_files": 1,
+  "success_count": 1,
+  "failed_count": 0,
+  "total_elapsed_sec": 1004.28,
+  "device_used": "cpu",
+  "results": [
+    {
+      "file": "D:\\Obj\\Voice2Text\\9月24日 西财AI课录音1.m4a",
+      "status": "success",
+      "duration_sec": 2932.925,
+      "processing_time_sec": 1003.658262,
+      "chars_count": 12500,
+      "outputs": [
+        "D:\\Obj\\Voice2Text\\9月24日 西财AI课录音1.txt",
+        "D:\\Obj\\Voice2Text\\9月24日 西财AI课录音1_带时间戳.txt",
+        "D:\\Obj\\Voice2Text\\9月24日 西财AI课录音1.srt",
+        "D:\\Obj\\Voice2Text\\9月24日 西财AI课录音1.docx"
+      ]
+    }
+  ]
+}

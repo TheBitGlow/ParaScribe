@@ -1,0 +1,36 @@
+# 言迹 (ParaScribe) 配置文件 / Configuration File (config.yaml)
+# 未特别设置的项将采用程序内置的默认值 / Unspecified options fallback to defaults
+
+output:
+  output_dir: "已生成"         # 默认结果导出目录 / Default output directory
+  format: paragraphs          # 可选/Options: paragraphs (语义分段), timestamps (带时间戳), raw (原始文本), srt (字幕)
+  encoding: utf-8             # 文本输出编码 / Output text encoding
+  also_save_timestamp: true   # 额外保存一份带时间戳的文稿 / Also save timestamped transcript
+  export_srt: true            # 自动导出标准 .srt 字幕 / Export standard SRT subtitle
+  export_docx: true           # 自动导出排版 Word (.docx) / Export formatted Word document
+  max_line_length: 60         # 单行最大建议字符数 / Max characters per line
+  max_paragraph_sentences: 4  # 单段最大句子数 / Max sentences per paragraph
+  auto_open_dir: false        # 转录完成后是否自动打开结果目录 / Auto-open output folder on finish
+
+audio:
+  enable_denoise: true        # 启用 FFmpeg 频域降噪与均衡 / Enable FFmpeg denoising & speech norm
+  chunk_duration_sec: 900     # 基础分片时长(秒)，900s = 15min / Chunk duration in seconds
+  chunk_overlap_sec: 10       # 相邻分片重叠秒数，防止切片边界吞字 / Chunk overlap in seconds
+  semantic_pause_threshold_ms: 1500  # 语音停顿换段阈值(毫秒) / Semantic pause threshold in ms
+  ffmpeg_search_paths:
+    - "D:\\ProgramFiles\\ffmpeg9.0\\bin\\ffmpeg.exe"
+
+recognition:
+  language: zh                # 语言偏好 / Language: zh (中文/中英混读), en (英文), auto
+  device: auto                # 推理设备 / Device: auto (自动检测 CUDA/CPU), cpu, cuda
+  cpu_threads: 6              # CPU 推理线程数 / CPU inference threads
+  vad_max_segment_ms: 30000   # VAD 单句最大时长(毫秒) / VAD max segment in ms
+  batch_size_s: 300           # 动态批处理总时长(秒) / Batch size in seconds
+  hotwords_file: hotwords.txt # 领域热词库文件 / Domain hotwords file
+  model_trust_remote_code: false
+
+text_cleanup:
+  remove_filler_words: true   # 智能过滤口语废词 / Remove conversational filler words
+  fix_stutter_repeats: true   # 修复口吃叠字与边界重复 / Fix stuttering & ASR boundary repetitions
+  convert_chinese_numbers: false # 转换中文数字为阿拉伯数字 / Convert Chinese numbers to Arabic digits
+  replacements_file: replacements.txt # 自定义 ASR 替换表 / Custom error correction replacement table

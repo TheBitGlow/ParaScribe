@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "opencv-mcp-server": {
+      "description": "提供完整的OpenCV图像处理和计算机视觉功能，包括图像滤波、边缘检测、特征匹配、物体检测等",
+      "command": "uvx",
+      "args": [
+        "--from",
+        "iflow-mcp_opencv-mcp-server",
+        "opencv-mcp-server"
+      ],
+      "env": {
+        "OPENCV_DNN_MODELS_DIR": "#{OPENCV_DNN_MODELS_DIR}"
+      }
+    }
+  }
+}
